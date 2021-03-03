@@ -1,7 +1,7 @@
-### C语言-指针基本知识
+# C语言-指针基本知识
 ```
 #include <stdio.h>
-// point
+// pointer
 int main() {
     int num = 1;
     //过程:找num,num找地址,地址取值
@@ -9,8 +9,8 @@ int main() {
 
     //指针ptr->num的地址(且类型为int)
     int *ptr = &num; //指针自身也有地址!
-    printf("ptr1's address=%p\n",&ptr);
-    printf("num's address=%p\n",ptr);//其中ptr可以写成&*ptr
+    printf("ptr1's address=%p\n",&ptr);//取ptr指针本身的地址
+    printf("num's address=%p\n",ptr);//取ptr指针存放的地址.其中ptr可以写成&*ptr
 
     //综上:
     // num = 1 ; &num = num的地址; &ptr = ptr自身的地址; ptr = num的地址;
@@ -22,7 +22,7 @@ int main() {
 }
 ```
 
-### C语言-应用案例
+## 指针 应用案例
 1. 写一个程序，获取一个int变量num的地址，并显示到终端
 2. 将num的地址赋给指针ptr,并通过ptr去修改num的值.
 3. 并画出案例的内存布局图
@@ -42,13 +42,13 @@ int main() {
 }
 ```
 
-### 试编写程序实现如下效果
+## 转义字符 应用案例 
+- 试编写程序实现如下效果
 
 ```
 姓名  年龄  成绩  性别  爱好
 XX    XX    XX    XX    XX
 ```
-
 要求:
 1. 用变量将姓名、年龄、成绩、性别、爱好存储
 2. 添加适当的注释
@@ -68,7 +68,7 @@ int main() {
     return 0;
 }
 ```
-### 计算器
+## 计算器 应用案例2 
 
 ```
 #include <stdio.h>
@@ -87,6 +87,7 @@ int main() {
     printf("num1-num2=%d\n",num1-num2);
 }
 ```
+
 
 ### const和#define的区别
 
