@@ -68,8 +68,7 @@ int main() {
     return 0;
 }
 ```
-## 计算器 应用案例2 
-
+## 计算器 应用案例
 ```
 #include <stdio.h>
 
@@ -87,22 +86,16 @@ int main() {
     printf("num1-num2=%d\n",num1-num2);
 }
 ```
-
-
 ### const和#define的区别
-
 1. const定义的常量时，带类型，define不带类型
-
 ```
 #define 常量名 常量值;
 #define Pi 3.14
 const 数据类型 常量名=常量值;
 const double pi = 3.14;
 ```
-
 2. const是在编译、运行的时候起作用，而define是在编译的预处理阶段起作用
 3. define只是简单的替换，没有类型检查。简单的字符串替换会导致边界效应
-
 ```
 #include <stdio.h>
 #define A 1
@@ -134,11 +127,8 @@ int main(){
 
 }
 ```
-
-
 4. const常量可以进行调试的，define是不能进行调试的，主要是预编译阶段就已经替换掉了，调试的时候就没它了
 5. const不能重定义，不可以定义两个一样的，而define通过undef取消某个符号的定义再重新定义
-
 ```
 #include <stdio.h>
 const double pi = 3.14;
