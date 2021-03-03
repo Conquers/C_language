@@ -2691,3 +2691,68 @@ info(四个字节:因为int是四个字节占用最大)--------> __0011 1110__ _
 //实际输出为-21164
 
 ```
+
+```
+#include <stdio.h>
+#define Total 2 //人员总数
+union Sc {
+    float score;
+    char course[20];
+};
+struct Person{
+    char name[20];  //姓名
+    int num;        //编号
+    char sex;       //性别 f->女性,m->男性
+    char profession;//职业 s->学生.t->老师
+//    union{
+//        float score;//得分
+//        char course[20]
+//    }sc;//sc是一个共同体变量
+    union Sc sc;
+};
+int main(){
+    int i;
+    struct Person persons[Total];//定义了一个结构体数组
+    //输入人员信息
+    for(i=0;i<Total;i++){
+        printf("input information:name,num,sex,profession(f->female,m->male.s->student.t->teacher):\n");
+        //对于数字和字符要用&
+        //输出时使用空格
+        scanf("%s %d %c %c",persons[i].name,&(persons[i].num),&(persons[i].sex),&(persons[i].profession));
+        if(persons[i].profession == 's'){   //如果是学生
+            printf("input score\n");
+            scanf("%f",&persons[i].sc.score);
+        }
+        else{
+            printf("input course\n");//如果是老师
+            scanf("%f",&persons[i].sc.course);
+            }
+        }
+        fflush((stdin));
+    //输出人员信息
+    printf("name\tnum\tsex\tprofession\tscore/course\n");
+    for (int i = 0; i < Total; i++) {
+        if(persons[i].profession == 's'){   //如果是学生
+            printf("%s\t%d\t%c\t%c\t\t%f\n",persons[i].name,persons[i].num,persons[i].sex,persons[i].profession,persons[i].sc.score);
+        }
+        else{//如果是老师
+            printf("%s\t%d\t%c\t%c\t\t%f\n",persons[i].name,persons[i].num,persons[i].sex,persons[i].profession,persons[i].sc.course);
+        }
+    }
+    return 0;
+}
+
+input information:name,num,sex,profession(f->female,m->male.s->student.t->teacher):
+jack 10 f s
+input score
+90
+input information:name,num,sex,profession(f->female,m->male.s->student.t->teacher):
+lucy 20 f t
+input course
+chinese
+name    num     sex     profession      score/course
+jack    10      f       s               90.000000
+lucy    20      f       t               0.000000
+
+
+```
